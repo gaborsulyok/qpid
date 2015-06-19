@@ -186,6 +186,15 @@ if (MSVC)
         set(DOTNET_SLN_VISUAL_STUDIO        "Visual Studio 2012")
         set(DOTNET_TARGET_FRAMEWORK_VERSION "v4.5")
         set(DOTNET_PLATFORM_TOOLSET         "<PlatformToolset>v110</PlatformToolset>")
+    elseif((${CMAKE_GENERATOR} STREQUAL "Visual Studio 12 2013") OR
+           (${CMAKE_GENERATOR} STREQUAL "Visual Studio 12 2013 Win64"))
+        # Visual Studio 2013
+        select_msvcx_files()
+        set(DOTNET_MSVC_SELECT              "msvcx")
+        set(DOTNET_SLN_FILE_FORMAT          "12.00")
+        set(DOTNET_SLN_VISUAL_STUDIO        "Visual Studio 2013")
+        set(DOTNET_TARGET_FRAMEWORK_VERSION "v4.5")
+        set(DOTNET_PLATFORM_TOOLSET         "<PlatformToolset>v120</PlatformToolset>")
 
     else()
         message(FATAL_ERROR "No DOTNET binding support available for ${CMAKE_GENERATOR}")
